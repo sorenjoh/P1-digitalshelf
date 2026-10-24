@@ -1,0 +1,12 @@
+# ninja log v7
+12	216	8145658335290751	CMakeFiles/digitalshelf.dir/main.c.obj	6df5d5ead538095e
+64	247	8145658335801512	CMakeFiles/digitalshelf.dir/preference_survey.c.obj	59dee8bab277f4f6
+52	252	8145658335716347	CMakeFiles/digitalshelf.dir/user_database.c.obj	3984582ae6d95197
+58	252	8145658335751421	CMakeFiles/digitalshelf.dir/movie_database.c.obj	17231cff9579175c
+72	256	8145658335886630	CMakeFiles/digitalshelf.dir/survey_questions.c.obj	4eec98427d5cea3c
+68	257	8145658335846550	CMakeFiles/digitalshelf.dir/recommendation.c.obj	a8f7d70dcbef5003
+76	259	8145658335931623	CMakeFiles/digitalshelf.dir/ratings.c.obj	91c389d89dee65e0
+39	270	8145658335561206	CMakeFiles/digitalshelf.dir/main_menu.c.obj	d4a3098e6b9eabe0
+48	271	8145658335651298	CMakeFiles/digitalshelf.dir/user_creation.c.obj	9634ecb9da8c04f4
+44	285	8145658335601196	CMakeFiles/digitalshelf.dir/login.c.obj	b7ddada9b2dfd2ee
+285	439	8145658338015232	digitalshelf.exe	556ba38d083f0e6c

@@ -1,0 +1,3 @@
+C:/Users/kleins/Documents/GitHub/P1-digitalshelf/build-ucrt64/CMakeFiles/digitalshelf.dir
+C:/Users/kleins/Documents/GitHub/P1-digitalshelf/build-ucrt64/CMakeFiles/edit_cache.dir
+C:/Users/kleins/Documents/GitHub/P1-digitalshelf/build-ucrt64/CMakeFiles/rebuild_cache.dir
