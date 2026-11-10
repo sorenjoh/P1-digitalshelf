@@ -1,7 +1,7 @@
 #include "main_menu.h"
 #include <stdio.h>
 #include <string.h>
-
+#include "preference_survey.h"
 
 void Get_User(){ //Get usernames from JSON file
     FILE *Userfile = fopen("users.json", "r");
@@ -69,4 +69,20 @@ void Get_User(){ //Get usernames from JSON file
     }
 
     fclose(Userfile);
+}
+
+int main(int argv, char** argc){
+
+    char genre[10];
+    char actors[30];
+    int length;
+    char director[30];
+    char studio[30];
+    double rating;
+    questions(genre, actors, &length, director, studio, &rating);
+
+    printf("%s\n%s\n%d\n%s\n%s\n%lf", genre, actors, length, director, studio, rating);
+
+    return 0;
+
 }
