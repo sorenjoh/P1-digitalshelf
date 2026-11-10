@@ -1,3 +1,0 @@
-/mnt/c/Users/hrzil/Documents/GitHub/P1-digitalshelf/build-wsl/CMakeFiles/digitalshelf.dir
-/mnt/c/Users/hrzil/Documents/GitHub/P1-digitalshelf/build-wsl/CMakeFiles/edit_cache.dir
-/mnt/c/Users/hrzil/Documents/GitHub/P1-digitalshelf/build-wsl/CMakeFiles/rebuild_cache.dir
