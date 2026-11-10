@@ -31,7 +31,7 @@ void CreateUser(void){
     scanf("%s", Actors[2]);
 
 
-    FILE *Userfile = fopen("users.json", "w");
+    FILE *Userfile = fopen("users.json", "a+");
 
     if (Userfile == NULL) {
         printf("ERROR: Userfile coud not oppen \n");

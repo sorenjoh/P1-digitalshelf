@@ -1,4 +1,7 @@
 #include "main_menu.h"
+#include <stdio.h>
+#include <string.h>
+
 
 void Get_User(){ //Get usernames from JSON file
     FILE *Userfile = fopen("users.json", "r");

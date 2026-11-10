@@ -1,4 +1,5 @@
 #include "user_database.h"
+#include <stdio.h>
 
 void get_usernames(){
 
