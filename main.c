@@ -26,7 +26,7 @@ int main(int argv, char** argc){
     int Userfound = 0;
     int nyuser = 0;
     printf("write you username or \"create\" \n");
-    //do{
+    do{
         scanf("%s", Input);
 
         if(strcmp(Input, "create") == 0){
@@ -55,7 +55,7 @@ int main(int argv, char** argc){
         if(Userfound == 0){
             printf("Not a username: try again! \n");
         }
-    //}while(Userfound == 0);
+    }while(Userfound == 0);
 
 
     return 0;
