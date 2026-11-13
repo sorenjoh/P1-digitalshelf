@@ -1,7 +1,10 @@
 #include "main_menu.h"
 #include <stdio.h>
 #include <string.h>
+
 #include "preference_survey.h"
+#include "user_creation.h"
+#include "user_database.h"
 
 
 
@@ -36,6 +39,7 @@ int main(int argv, char** argc){
                 char studio[30];
                 double rating;
                 questions(genre, actors, &length, director, studio, &rating);
+                //printf("%s\n%s\n%d\n%s\n%s\n%lf", genre, actors, length, director, studio, rating);
                 break;
             }
         }
@@ -44,7 +48,6 @@ int main(int argv, char** argc){
         }
     }while(Userfound == 0);
 
-    printf("%s\n%s\n%d\n%s\n%s\n%lf", genre, actors, length, director, studio, rating);
 
     return 0;
 

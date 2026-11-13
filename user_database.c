@@ -1,5 +1,6 @@
 #include "user_database.h"
 #include <stdio.h>
+#include <string.h>
 
 void Get_User(char (*Usernames)[50], int *users){ //Get usernames from JSON file
     FILE *Userfile = fopen("users.json", "r");

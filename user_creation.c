@@ -6,7 +6,7 @@ void CreateUser(int users){
     printf("write a username: \n");
     scanf("%s", Username);
 
-    char Genre[3][10];
+    char Genre[3][30];
     printf("write a tre genre: \n");
     scanf("%s", Genre[0]);
     scanf("%s", Genre[1]);

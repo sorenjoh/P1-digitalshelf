@@ -3,6 +3,6 @@
 
 typedef struct User User;
 
-void get_usernames(char* usernemes[10][50]);
-
+void Get_User(char (*Usernames)[50], int *users);
+void getAll_DATA(char (*user)[7][50]);
 #endif
