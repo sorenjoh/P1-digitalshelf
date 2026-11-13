@@ -1,8 +1,8 @@
 #include "user_creation.h"
 #include <stdio.h>
+#include <string.h>
 
-void CreateUser(int users){
-    char Username[50];
+ void CreateUser(char Username[50], int users){
     printf("write a username: \n");
     scanf("%s", Username);
 

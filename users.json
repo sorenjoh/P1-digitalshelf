@@ -9,3 +9,21 @@
     "Movie1": "Harry",  
     "Movie2": "Potter"  
 }
+},
+"user2":
+{
+"username" : "odin", 
+"genre0" : "a", 
+"genre1" : "b", 
+"genre2" : "c", 
+"dislikeGenre0" : "dd", 
+"dislikeGenre1" : "e", 
+"dislikeGenre2" : "f", 
+"movies0" : "g", 
+"movies1" : "h", 
+"movies2" : "e", 
+"actors0" : "a", 
+"actors1" : "q", 
+"actors2" : "l" 
+}
+}
