@@ -1,7 +1,7 @@
 #include "user_creation.h"
 #include <stdio.h>
 
-void CreateUser(void){
+void CreateUser(int users){
     char Username[50];
     printf("write a username: \n");
     scanf("%s", Username);
@@ -29,38 +29,47 @@ void CreateUser(void){
     scanf("%s", Actors[0]);
     scanf("%s", Actors[1]);
     scanf("%s", Actors[2]);
+    Write_user_to_file(Username, Genre, DislikedGenres, Movies, Actors, users);
+
+}
 
 
+void Write_user_to_file(char Username[50], char (*Genre)[30], char (*DislikeGenre)[30], char (*Movies)[30], char (*Actors)[30], int users){
     FILE *Userfile = fopen("users.json", "a+");
-
+        
     if (Userfile == NULL) {
         printf("ERROR: Userfile coud not oppen \n");
     }
 
+    if(users == 0){
+        fprintf(Userfile, "{\n");
+    }else{
+        fseek(Userfile, -2, SEEK_END); // fiks, den går ikke tilbage og overskriver de felter
+        fprintf(Userfile, "},\n");
+    }
+
+    
+    fprintf(Userfile, "\"user%d\":\n", users + 1);
     fprintf(Userfile, "{\n");
-    fprintf(Userfile, "    \"username\": \"%s\",  \n\n", Username);
-
+    fprintf(Userfile, "\"username\" : \"%s\", \n", Username);
     for(int i = 0; i < 3; i++){
-    fprintf(Userfile, "    \"genre%d\": \"%s\",  \n", i, Genre[i]);
+        fprintf(Userfile, "\"genre%d\" : \"%s\", \n", i, Genre[i]);
     }
-
     for(int i = 0; i < 3; i++){
-    fprintf(Userfile, "    \"DislikedGenres%d\": \"%s\",  \n", i, DislikedGenres[i]);
+        fprintf(Userfile, "\"dislikeGenre%d\" : \"%s\", \n", i, DislikeGenre[i]);
     }
-
     for(int i = 0; i < 3; i++){
-    fprintf(Userfile, "    \"Actors%d\": \"%s\",  \n", i, Actors[i]);
+        fprintf(Userfile, "\"movies%d\" : \"%s\", \n", i, Movies[i]);
     }
-
-    fprintf(Userfile, "\n");
-
     for(int i = 0; i < 3; i++){
-        if(i == 3 - 1){
-            fprintf(Userfile, "    \"Movie%d\": \"%s\"  \n", i, Movies[i]);
+        if(i == 2){
+            fprintf(Userfile, "\"actors%d\" : \"%s\" \n", i, Actors[i]);
         }else{
-            fprintf(Userfile, "    \"Movie%d\": \"%s\",  \n", i, Movies[i]);
+            fprintf(Userfile, "\"actors%d\" : \"%s\", \n", i, Actors[i]);
         }
     }
     fprintf(Userfile, "}\n");
+    fprintf(Userfile, "}\n");
+
     fclose(Userfile);
 }

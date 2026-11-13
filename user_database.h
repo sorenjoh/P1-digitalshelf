@@ -3,4 +3,6 @@
 
 typedef struct User User;
 
+void get_usernames(char* usernemes[10][50]);
+
 #endif
