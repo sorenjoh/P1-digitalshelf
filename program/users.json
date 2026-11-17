@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "username": "soren",
+      "genres": ["Action", "Horror", "Romance"],
+      "movies": ["Herbie", "Harry", "Potter"]
+    },
+    {
+      "username": "user2",
+      "genres": ["a", "b", "c"],
+      "dislikeGenres": ["dd", "e", "f"],
+      "movies": ["g", "h", "e"],
+      "actors": ["a", "q", "l"]
+    }
+  ]
+}
