@@ -1,9 +1,0 @@
-# Genererede build-filer
-/build/
-/cmake-build-*/
-
-# Lokale IDE-indstillinger
-/.idea/
-/.vs/
-/CMakeUserPresets.json
-/build-*/
