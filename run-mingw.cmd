@@ -1,3 +1,5 @@
 @echo off
+setlocal
+set "PATH=C:\msys64\ucrt64\bin;%PATH%"
 cd /d "%~dp0"
-cmake -S program -B build/mingw-make -G "MinGW Makefiles" -DCMAKE_C_COMPILER=gcc && cmake --build build/mingw-make --parallel && cd program && "..\build\mingw-make\digitalshelf.exe"
+cmake -S program -B build/mingw-ninja -G Ninja -DCMAKE_C_COMPILER=gcc && cmake --build build/mingw-ninja --parallel && cd program && "..\build\mingw-ninja\digitalshelf.exe"

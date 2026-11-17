@@ -1,3 +1,0 @@
-C:\msys64\ucrt64\bin\cmake.exe -E rm -f CMakeFiles\digitalshelf.dir/objects.a
-C:\msys64\ucrt64\bin\ar.exe qc CMakeFiles\digitalshelf.dir/objects.a @CMakeFiles\digitalshelf.dir\objects1.rsp
-C:\msys64\ucrt64\bin\gcc.exe -Wl,--whole-archive CMakeFiles\digitalshelf.dir/objects.a -Wl,--no-whole-archive -o digitalshelf.exe -Wl,--out-implib,libdigitalshelf.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\digitalshelf.dir\linkLibs.rsp
