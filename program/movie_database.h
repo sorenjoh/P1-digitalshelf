@@ -3,4 +3,6 @@
 
 typedef struct Movie Movie;
 
+int movieLib(void);
+
 #endif

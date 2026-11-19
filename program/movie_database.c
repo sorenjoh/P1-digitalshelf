@@ -1,5 +1,6 @@
-
 #include <stdio.h>
+
+#include "movie_database.h"
 
 typedef struct {
     char title[100];
@@ -11,7 +12,7 @@ typedef struct {
     char actors[3][100];
 } Film;
 
-int main(void) {
+int movieLib(void) {
 
     Film filmList[] = {
         {"Groundhog Day", "Comedy", 1993, 101, "Harold Ramis", 8.0, {"Bill Murray", "Andie MacDowell", "Chris Elliott"}},

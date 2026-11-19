@@ -1,4 +1,5 @@
 #include "main_menu.h"
+#include "movie_database.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -57,6 +58,7 @@ int main(int argv, char** argc){
         }
     }while(Userfound == 0);
 
+    movieLib();
 
     return 0;
 
