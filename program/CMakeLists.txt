@@ -4,15 +4,10 @@ project(DigitalShelf LANGUAGES C)
 # Alle programmets .c-filer bygges og linkes sammen.
 add_executable(digitalshelf
     main.c
-    main_menu.c
-    login.c
     user_creation.c
     user_database.c
     movie_database.c
     preference_survey.c
-    recommendation.c
-    survey_questions.c
-    ratings.c
 )
 
 # Brug standard C11 uden compiler-specifikke sprogudvidelser.

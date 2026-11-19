@@ -1,4 +1,3 @@
-#include "main_menu.h"
 #include "movie_database.h"
 #include <stdio.h>
 #include <string.h>
@@ -6,8 +5,6 @@
 #include "preference_survey.h"
 #include "user_creation.h"
 #include "user_database.h"
-
-
 
 int main(int argv, char** argc){
 
