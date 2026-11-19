@@ -23,6 +23,13 @@ int main(int argv, char** argc){
     char Username[50];
     int Userfound = 0;
     int nyuser = 0;
+
+    char genre[10];
+    char actors[30];
+    int length;
+    char director[30];
+    char studio[30];
+    double rating;
     printf("write you username or \"create\" \n");
     do{
         scanf("%s", Input);
@@ -39,12 +46,7 @@ int main(int argv, char** argc){
         for(int i = 0; i < 10; i++){
             if(strcmp(Input, Usernames[i]) == 0 || nyuser == 1){
                 Userfound = 1;
-                char genre[10];
-                char actors[30];
-                int length;
-                char director[30];
-                char studio[30];
-                double rating;
+
                 questions(genre, actors, &length, director, studio, &rating);
                 //printf("%s\n%s\n%d\n%s\n%s\n%lf", genre, actors, length, director, studio, rating);
                 break;
@@ -55,7 +57,13 @@ int main(int argv, char** argc){
         }
     }while(Userfound == 0);
 
+    char userData[10][13][100];
+    getAll_DATA(userData);
+
+    Call_recomender(userData, genre, actors, length, director, studio, rating);
+
     movieLib();
+    
 
     return 0;
 

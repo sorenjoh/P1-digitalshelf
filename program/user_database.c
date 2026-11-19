@@ -50,14 +50,14 @@ void Get_User(char (*Usernames)[50], int *users){ //Get usernames from JSON file
 
 
 
-void getAll_DATA(char (*user)[7][50]){ //multidimentional arrayis i c håntere der første array som en pointer 
+void getAll_DATA(char (*user)[13][100]){ //multidimentional arrayis i c håntere der første array som en pointer 
     FILE *Userfile = fopen("users.json", "r"); //åbner json filen i read mode og håntere filadressen med "Userfile"
 
     if (Userfile == NULL) { //Tjekker om filen ikke blevet åbnet
         printf("ERROR: Userfile coud not oppen \n");
     }
 
-    char output[50]; // liste som håntere midlertidig data som små strings.
+    char output[100]; // liste som håntere midlertidig data som små strings.
 
     int c;
     int Bool_CauntDown = 0;
@@ -69,7 +69,7 @@ void getAll_DATA(char (*user)[7][50]){ //multidimentional arrayis i c håntere d
         if(Bool_CauntDown == 1){ //håntere den tæller der holder styr på hvor mange små strings der dannes.
             Counter++;
         }
-        for(int i = 1; i < 50; i++){ //Laver en karakter-serie på op til 50 karaktere som man kan sammeligne med
+        for(int i = 1; i < 100; i++){ //Laver en karakter-serie på op til 50 karaktere som man kan sammeligne med
             output[i] = fgetc(Userfile);
             printf("%c ", output[i]);
             if(output[i] == '"'){
@@ -87,27 +87,45 @@ void getAll_DATA(char (*user)[7][50]){ //multidimentional arrayis i c håntere d
                 }else if(strcmp(output, "genre2") == 0){
                     Bool_CauntDown = 1;
                     datapoint = 3;
-                }else if(strcmp(output, "Movie0") == 0){
+                }else if(strcmp(output, "dislikeGenre0") == 0){
                     Bool_CauntDown = 1;
                     datapoint = 4;
-                }else if(strcmp(output, "Movie1") == 0){
+                }else if(strcmp(output, "dislikeGenre1") == 0){
                     Bool_CauntDown = 1;
                     datapoint = 5;
-                }else if(strcmp(output, "Movie2") == 0){
+                }else if(strcmp(output, "dislikeGenre2") == 0){
                     Bool_CauntDown = 1;
                     datapoint = 6;
+                }else if(strcmp(output, "movies0") == 0){
+                    Bool_CauntDown = 1;
+                    datapoint = 7;
+                }else if(strcmp(output, "movies1") == 0){
+                    Bool_CauntDown = 1;
+                    datapoint = 8;
+                }else if(strcmp(output, "movies2") == 0){
+                    Bool_CauntDown = 1;
+                    datapoint = 9;
+                }else if(strcmp(output, "actors0") == 0){
+                    Bool_CauntDown = 1;
+                    datapoint = 10;
+                }else if(strcmp(output, "actors1") == 0){
+                    Bool_CauntDown = 1;
+                    datapoint = 11;
+                }else if(strcmp(output, "actors2") == 0){
+                    Bool_CauntDown = 1;
+                    datapoint = 12;
                 }
                 break;
             }
         }
         if(Counter == 2){
-            for(int i = 0; i < 50; i++){ // Gemmer samtlige data.
+            for(int i = 0; i < 100; i++){ // Gemmer samtlige data.
                 user[users - 1][datapoint][i] = output[i];
             }
             Counter = 0;
             Bool_CauntDown = 0;
         }
-        for(int i = 0; i < 50; i++){ // clear midlertidig data array
+        for(int i = 0; i < 100; i++){ // clear midlertidig data array
             output[i] = 0;
         }         
     }

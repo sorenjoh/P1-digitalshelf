@@ -1,17 +1,8 @@
 
 #include <stdio.h>
+#include <string.h>
 
-typedef struct {
-    char title[100];
-    char genre[50];
-    int year;
-    int duration;
-    char director[100];
-    float rating;
-    char actors[3][100];
-} Film;
-
-int movieLib(void) {
+#include "movie_database.h"
 
     Film filmList[] = {
         {"Groundhog Day", "Comedy", 1993, 101, "Harold Ramis", 8.0, {"Bill Murray", "Andie MacDowell", "Chris Elliott"}},
@@ -126,6 +117,8 @@ int movieLib(void) {
         {"The Wolf of Wall Street", "Biography", 2013, 180, "Martin Scorsese", 8.2, {"Leonardo DiCaprio", "Jonah Hill", "Margot Robbie"}}
     };
 
+void movieLib(void) {
+
     int movieCount = sizeof(filmList) / sizeof(filmList[0]);
 
     for (int i = 0; i < movieCount; i++) {
@@ -146,5 +139,87 @@ int movieLib(void) {
         printf("--------------------\n");
     }
 
-    return 0;
+    
 }
+
+
+void recommender(char userData[10][13][100], char genre[10], char actors[30], int length, char director[30], char studio[30], double rating){
+    int i = 0;
+    int points[100] = {0};
+
+    while(filmList != NULL){
+        if(strcmp(filmList[i].genre, genre) == 0){
+            points[i] = points[i] + 3;
+        }
+        int actorCount = sizeof(filmList[i].actors) / sizeof(filmList[i].actors[0]);
+
+        for(int j = 0; j < actorCount; j++){
+            if(strcmp(filmList[i].actors[j], actors) == 0){
+                points[i] = points[i] + 3;
+            }
+        }
+        if((length - 15) < filmList[i].duration || (length + 15) > filmList[i].duration){
+            points[i] = points[i] + 3;
+        }
+        if(strcmp(filmList[i].director, director) == 0){
+            points[i] = points[i] + 3;
+        }
+        if((rating - 2) < filmList[i].rating || (rating + 2) > filmList[i].rating){
+            points[i] = points[i] + 3;
+        }
+
+        if(strcmp(filmList[i].genre, userData[i][1]) == 0){
+            points[i] = points[i] + 1;
+        }
+        if(strcmp(filmList[i].genre, userData[i][2]) == 0){
+            points[i] = points[i] + 1;
+        }
+        if(strcmp(filmList[i].genre, userData[i][3]) == 0){
+            points[i] = points[i] + 1;
+        }
+       
+        if(strcmp(filmList[i].actors, userData[i][10]) == 0){
+            points[i] = points[i] + 1;
+        }
+        if(strcmp(filmList[i].actors, userData[i][11]) == 0){
+            points[i] = points[i] + 1;
+        }
+        if(strcmp(filmList[i].actors, userData[i][12]) == 0){
+            points[i] = points[i] + 1;
+        }
+        
+        i++;
+    }
+    int movieCount = sizeof(filmList) / sizeof(filmList[0]); // Dette vier ikke! Vi ønsker at få de 3 film med højest antal poing
+
+    int film1[3] = 0;
+    int medlertideig = 0;
+
+for(int k = 0; k < 3; k++){
+    for(int j = 0; j < movieCount; j++){
+        if(points[j] == film1[0] || points[j] == film1[1] || points[j] == film1[2]){
+
+        }else if(points[j] > film1[k]){
+            film1[k] = j;
+        }
+            
+    }
+
+}
+
+for(int j = 0; j < movieCount; j++){ // finder størst poing
+    if(points[j] > film1[j + 1]){
+            film1[0] = j;
+        }
+}
+
+
+for(int e = 0; e < 10; e++){
+    
+    film1[0] - e;
+    for(int j = 0; j < movieCount; j++){ // finder størst poing
+        
+    }
+
+}
+
