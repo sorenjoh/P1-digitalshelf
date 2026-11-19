@@ -1,6 +1,5 @@
-#include <stdio.h>
 
-#include "movie_database.h"
+#include <stdio.h>
 
 typedef struct {
     char title[100];

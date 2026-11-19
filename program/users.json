@@ -13,4 +13,21 @@
       "actors": ["a", "q", "l"]
     }
   ]
+}},
+"user3":
+{
+"username" : "Dragonlord", 
+"genre0" : "hey", 
+"genre1" : "sd", 
+"genre2" : "sd", 
+"dislikeGenre0" : "horror", 
+"dislikeGenre1" : "fantasy", 
+"dislikeGenre2" : "action", 
+"movies0" : "interstellar", 
+"movies1" : "lord", 
+"movies2" : "of", 
+"actors0" : "the", 
+"actors1" : "rings", 
+"actors2" : "star" 
+}
 }
