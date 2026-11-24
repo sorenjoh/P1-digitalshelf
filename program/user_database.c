@@ -71,7 +71,7 @@ void getAll_DATA(char (*user)[13][100]){ //multidimentional arrayis i c håntere
         }
         for(int i = 1; i < 100; i++){ //Laver en karakter-serie på op til 50 karaktere som man kan sammeligne med
             output[i] = fgetc(Userfile);
-            printf("%c ", output[i]);
+            //printf("%c ", output[i]);
             if(output[i] == '"'){
                 output[i] = 0;
                 if(strcmp(output, "username") == 0){ // finder username

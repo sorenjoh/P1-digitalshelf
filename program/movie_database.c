@@ -143,11 +143,10 @@ void movieLib(void) {
 }
 
 
-void recommender(char userData[10][13][100], char genre[10], char actors[30], int length, char director[30], char studio[30], double rating){
-    int i = 0;
+void recommender(char userData[10][13][100], char genre[10], char actors[30], int length, char director[30], char studio[30], double rating, int UserNumber){
     int points[100] = {0};
 
-    while(filmList != NULL){
+    for(int i = 0; i < 99; i++){
         if(strcmp(filmList[i].genre, genre) == 0){
             points[i] = points[i] + 3;
         }
@@ -168,58 +167,58 @@ void recommender(char userData[10][13][100], char genre[10], char actors[30], in
             points[i] = points[i] + 3;
         }
 
-        if(strcmp(filmList[i].genre, userData[i][1]) == 0){
+        if(strcmp(filmList[i].genre, userData[UserNumber][1]) == 0){
             points[i] = points[i] + 1;
         }
-        if(strcmp(filmList[i].genre, userData[i][2]) == 0){
+        if(strcmp(filmList[i].genre, userData[UserNumber][2]) == 0){
             points[i] = points[i] + 1;
         }
-        if(strcmp(filmList[i].genre, userData[i][3]) == 0){
+        if(strcmp(filmList[i].genre, userData[UserNumber][3]) == 0){
             points[i] = points[i] + 1;
         }
        
-        if(strcmp(filmList[i].actors, userData[i][10]) == 0){
+        if(strcmp(filmList[i].actors[0], userData[UserNumber][10]) == 0){
             points[i] = points[i] + 1;
         }
-        if(strcmp(filmList[i].actors, userData[i][11]) == 0){
+        if(strcmp(filmList[i].actors[1], userData[UserNumber][11]) == 0){
             points[i] = points[i] + 1;
         }
-        if(strcmp(filmList[i].actors, userData[i][12]) == 0){
+        if(strcmp(filmList[i].actors[2], userData[UserNumber][12]) == 0){
             points[i] = points[i] + 1;
         }
-        
-        i++;
     }
     int movieCount = sizeof(filmList) / sizeof(filmList[0]); // Dette vier ikke! Vi ønsker at få de 3 film med højest antal poing
 
-    int film1[3] = 0;
-    int medlertideig = 0;
+    int ChoosenMovis[3][2] = {{0},{0}}; //Oprette array til at indholde vore 3 film vi vil anbefale. Indholder: {[point (point fra points), pos (pos i filmList)]}  //[2] film med flest point, [1] film med 2. flest point, [0] film med 3. flest point.
+   for(int k = 0; k < movieCount; k++){ // Gennemkøre alle elementer i vores filmList (filmList size)
+        if(points[k] < ChoosenMovis[0][0]){ //tjekker om filmen på pos k har flere point end ChoosenMovis på plads 0
 
-for(int k = 0; k < 3; k++){
-    for(int j = 0; j < movieCount; j++){
-        if(points[j] == film1[0] || points[j] == film1[1] || points[j] == film1[2]){
+        }else if(points[k] <= ChoosenMovis[1][0]){ //tjekker om filmen på pos k har flere point end ChoosenMovis på plads 1
+            ChoosenMovis[0][0] = points[k];
+            ChoosenMovis[0][1] = k;
 
-        }else if(points[j] > film1[k]){
-            film1[k] = j;
+        }else if(points[k] <= ChoosenMovis[2][0]){//tjekker om filmen på pos k har flere point end ChoosenMovis på plads 2
+            ChoosenMovis[0][0] = ChoosenMovis[1][0];
+            ChoosenMovis[0][0] = ChoosenMovis[1][1];
+
+            ChoosenMovis[1][0] = points[k];
+            ChoosenMovis[1][1] = k;
+        }else{ //tjekker om filmen på pos k har flere point end 
+            ChoosenMovis[0][0] = ChoosenMovis[1][0];
+            ChoosenMovis[0][0] = ChoosenMovis[1][1];
+
+            ChoosenMovis[1][0] = ChoosenMovis[2][0];
+            ChoosenMovis[1][0] = ChoosenMovis[2][1];
+
+            ChoosenMovis[2][0] = points[k];
+            ChoosenMovis[2][1] = k;
         }
-            
-    }
+   }
+    printf("Udskriver fil og point \n");
 
+   for(int k = 0; k < 3; k++){
+    printf("%s : %d Point \n", filmList[ChoosenMovis[k][1]].title, ChoosenMovis[k][0]);
+   }
 }
 
-for(int j = 0; j < movieCount; j++){ // finder størst poing
-    if(points[j] > film1[j + 1]){
-            film1[0] = j;
-        }
-}
-
-
-for(int e = 0; e < 10; e++){
-    
-    film1[0] - e;
-    for(int j = 0; j < movieCount; j++){ // finder størst poing
-        
-    }
-
-}
 

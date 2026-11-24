@@ -15,7 +15,7 @@ typedef struct {
 Film filmList[];
 void movieLib(void);
 
-void recommender(char userData[10][13][100], char genre[10], char actors[30], int length, char director[30], char studio[30], double rating);
+void recommender(char userData[10][13][100], char genre[10], char actors[30], int length, char director[30], char studio[30], double rating, int UserNumber);
 
 #endif
 

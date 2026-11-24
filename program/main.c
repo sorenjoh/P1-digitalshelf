@@ -37,17 +37,18 @@ int main(int argv, char** argc){
         if(strcmp(Input, "create") == 0){
             CreateUser(Username, users);
             nyuser = 1;
-            /*for (int i = 0; i < 50; i++) {
-                Usernames[users][i]=Username[i];
-                users+=1;
-            }
-            printf("\n main:%s %s\n", Username, Usernames[users]);*/
+
+        Get_User(Usernames, &users);
         }
         for(int i = 0; i < 10; i++){
-            if(strcmp(Input, Usernames[i]) == 0 || nyuser == 1){
+            if(strcmp(Input, Usernames[i]) == 0 /*|| nyuser == 1*/){
                 Userfound = 1;
 
                 questions(genre, actors, &length, director, studio, &rating);
+                char userData[10][13][100];
+                getAll_DATA(userData);
+                int UserNumber = i;
+                recommender(userData, genre, actors, length, director, studio, rating, UserNumber);
                 //printf("%s\n%s\n%d\n%s\n%s\n%lf", genre, actors, length, director, studio, rating);
                 break;
             }
@@ -57,12 +58,9 @@ int main(int argv, char** argc){
         }
     }while(Userfound == 0);
 
-    char userData[10][13][100];
-    getAll_DATA(userData);
 
-    Call_recomender(userData, genre, actors, length, director, studio, rating);
 
-    movieLib();
+    //movieLib();
     
 
     return 0;
