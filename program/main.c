@@ -14,8 +14,8 @@ int main(int argv, char** argc){
     Get_User(Usernames, &users);
     printf("Users: ");
 
-    for(int i = 0; i < 10; i++){
-        printf("%s ", Usernames[i]);
+    for(int i = 0; i < users; i++){
+        printf("%s%s", i == 0 ? "" : ", ", Usernames[i]);
     }
     printf("\n");
 
