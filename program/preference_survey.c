@@ -1,5 +1,4 @@
 #include "preference_survey.h"
-#include "movie_database.h"
 #include <stdio.h>
 
 void questions(char genre[10], char actors[30], int* length, char director[30], char studio[30], double* rating){

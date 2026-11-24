@@ -1,8 +1,7 @@
+#include "movie_database.h"
 
 #include <stdio.h>
 #include <string.h>
-
-#include "movie_database.h"
 
     Film filmList[] = {
         {"Groundhog Day", "Comedy", 1993, 101, "Harold Ramis", 8.0, {"Bill Murray", "Andie MacDowell", "Chris Elliott"}},

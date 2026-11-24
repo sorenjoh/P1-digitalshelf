@@ -26,7 +26,7 @@ int main(int argv, char** argc){
 
     char genre[10];
     char actors[30];
-    int length;
+    int length = 0;
     char director[30];
     char studio[30];
     double rating;
