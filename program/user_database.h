@@ -1,8 +1,9 @@
 #ifndef DIGITALSHELF_USER_DATABASE_H
 #define DIGITALSHELF_USER_DATABASE_H
 
-typedef struct User User;
+enum { MAX_USERS = 10 };
 
-void Get_User(char (*Usernames)[50], int *users);
-void getAll_DATA(char (*user)[7][100]);
+int LoadUsers(char users[MAX_USERS][7][100]);
+int SaveUser(const char *username, char genres[3][30], char actors[3][30]);
+
 #endif

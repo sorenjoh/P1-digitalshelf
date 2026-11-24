@@ -1,59 +1,33 @@
 #include "user_creation.h"
+#include "user_database.h"
 #include <stdio.h>
-#include <string.h>
 
- void CreateUser(char Username[50], int users){
-    printf("Enter a username:\n");
-    scanf("%s", Username);
+int CreateUser(char username[50]){
+    char genres[3][30];
+    char actors[3][30];
 
-    int Amount_Genre = 3;
-    char Genre[Amount_Genre][30];
-    printf("Enter three genres you like, one per line:\n");
-    for(int i = 0; i < Amount_Genre; i++){
-    scanf(" %29[^\n]", Genre[i]);
+    puts("Enter a username:");
+    if(scanf("%49s", username) != 1){
+        return 0;
     }
 
-    int Amount_Actors = 3;
-    char Actors[Amount_Actors][30];
-    printf("Enter the names of three different actors you like, one per line:\n");
-    for(int i = 0; i < Amount_Actors; i++){
-    scanf(" %29[^\n]", Actors[i]);
-    }
-    Write_user_to_file(Username, Genre, Actors, users);
-
-}
-
-
-void Write_user_to_file(char Username[50], char (*Genre)[30], char (*Actors)[30], int users){
-    FILE *Userfile = fopen("users.json", "a+");
-        
-    if (Userfile == NULL) {
-        printf("Error: Could not open users.json.\n");
-    }
-
-    if(users == 0){
-        fprintf(Userfile, "{\n");
-    }else{
-        fseek(Userfile, -2, SEEK_END); // fiks, den går ikke tilbage og overskriver de felter
-        fprintf(Userfile, "},\n");
-    }
-
-    
-    fprintf(Userfile, "\"user%d\":\n", users + 1);
-    fprintf(Userfile, "{\n");
-    fprintf(Userfile, "\"username\" : \"%s\", \n", Username);
+    puts("Enter three genres you like, one per line:");
     for(int i = 0; i < 3; i++){
-        fprintf(Userfile, "\"genre%d\" : \"%s\", \n", i, Genre[i]);
-    }
-    for(int i = 0; i < 3; i++){
-        if(i == 2){
-            fprintf(Userfile, "\"actors%d\" : \"%s\" \n", i, Actors[i]);
-        }else{
-            fprintf(Userfile, "\"actors%d\" : \"%s\", \n", i, Actors[i]);
+        if(scanf(" %29[^\n]", genres[i]) != 1){
+            return 0;
         }
     }
-    fprintf(Userfile, "}\n");
-    fprintf(Userfile, "}\n");
 
-    fclose(Userfile);
+    puts("Enter the names of three different actors you like, one per line:");
+    for(int i = 0; i < 3; i++){
+        if(scanf(" %29[^\n]", actors[i]) != 1){
+            return 0;
+        }
+    }
+
+    if(!SaveUser(username, genres, actors)){
+        puts("Error: Could not save the account to users.json.");
+        return 0;
+    }
+    return 1;
 }

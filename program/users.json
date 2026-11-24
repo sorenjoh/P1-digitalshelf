@@ -11,35 +11,18 @@
       "dislikeGenres": ["dd", "e", "f"],
       "movies": ["g", "h", "e"],
       "actors": ["a", "q", "l"]
+    },
+    {
+      "username": "Frodo",
+      "genres": ["Fatasy", "Fantasy", "Sci-Fi"],
+      "dislikeGenres": ["Romance", "Thiller", "Comidy"],
+      "movies": ["0", "0", "0"],
+      "actors": ["Peter Jackson", "Timothee Chalamet", "Elijah Wood"]
+    },
+    {
+      "username": "Bo",
+      "genres": ["Action", "Horror", "Fantasy"],
+      "actors": ["Brad Pitt", "Henry Cavill", "Julia Roberts"]
     }
   ]
-}},
-"user3":
-{
-"username" : "Frodo", 
-"genre0" : "Fatasy", 
-"genre1" : "Fantasy", 
-"genre2" : "Sci-Fi", 
-"dislikeGenre0" : "Romance", 
-"dislikeGenre1" : "Thiller", 
-"dislikeGenre2" : "Comidy", 
-"movies0" : "0", 
-"movies1" : "0", 
-"movies2" : "0", 
-"actors0" : "Peter Jackson", 
-"actors1" : "Timothee Chalamet", 
-"actors2" : "Elijah Wood" 
-}
-}
-},
-"user4":
-{
-"username" : "Bo", 
-"genre0" : "Action", 
-"genre1" : "Horror", 
-"genre2" : "Fantasy", 
-"actors0" : "Brad Pitt", 
-"actors1" : "Henry Cavill", 
-"actors2" : "Julia Roberts" 
-}
 }
