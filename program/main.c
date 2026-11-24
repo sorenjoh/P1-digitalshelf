@@ -8,11 +8,11 @@
 
 int main(int argv, char** argc){
 
-    printf("Hello and welcome to our film recomender \n");
+    printf("Welcome to DigitalShelf!\n");
     char Usernames[10][50] = {0};
     int users = 0;
     Get_User(Usernames, &users);
-    printf("users: ");
+    printf("Users: ");
 
     for(int i = 0; i < 10; i++){
         printf("%s ", Usernames[i]);
@@ -30,7 +30,7 @@ int main(int argv, char** argc){
     char director[30];
     char studio[30];
     double rating;
-    printf("write you username or \"create\" \n");
+    printf("Enter your username or type \"create\" to create an account.\n");
     do{
         scanf("%s", Input);
 
@@ -54,7 +54,7 @@ int main(int argv, char** argc){
             }
         }
         if(Userfound == 0){
-            printf("Not a username: try again! \n");
+            printf("Username not found. Please try again.\n");
         }
     }while(Userfound == 0);
 

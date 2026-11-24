@@ -6,7 +6,7 @@ void Get_User(char (*Usernames)[50], int *users){ //Get usernames from JSON file
     FILE *Userfile = fopen("users.json", "r");
         
     if (Userfile == NULL) {
-        printf("ERROR: Userfile coud not oppen \n");
+        printf("Error: Could not open users.json.\n");
     }
 
     char output[50];
@@ -53,7 +53,7 @@ void getAll_DATA(char (*user)[7][100]){ //multidimentional arrayis i c håntere 
     FILE *Userfile = fopen("users.json", "r"); //åbner json filen i read mode og håntere filadressen med "Userfile"
 
     if (Userfile == NULL) { //Tjekker om filen ikke blevet åbnet
-        printf("ERROR: Userfile coud not oppen \n");
+        printf("Error: Could not open users.json.\n");
     }
 
     char output[100]; // liste som håntere midlertidig data som små strings.

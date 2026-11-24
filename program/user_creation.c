@@ -3,19 +3,19 @@
 #include <string.h>
 
  void CreateUser(char Username[50], int users){
-    printf("write a username: \n");
+    printf("Enter a username:\n");
     scanf("%s", Username);
 
     int Amount_Genre = 3;
     char Genre[Amount_Genre][30];
-    printf("write a tre genre: \n");
+    printf("Enter three genres you like, one per line:\n");
     for(int i = 0; i < Amount_Genre; i++){
     scanf(" %29[^\n]", Genre[i]);
     }
 
     int Amount_Actors = 3;
     char Actors[Amount_Actors][30];
-    printf("Write three different actors you like:  \n");
+    printf("Enter the names of three different actors you like, one per line:\n");
     for(int i = 0; i < Amount_Actors; i++){
     scanf(" %29[^\n]", Actors[i]);
     }
@@ -28,7 +28,7 @@ void Write_user_to_file(char Username[50], char (*Genre)[30], char (*Actors)[30]
     FILE *Userfile = fopen("users.json", "a+");
         
     if (Userfile == NULL) {
-        printf("ERROR: Userfile coud not oppen \n");
+        printf("Error: Could not open users.json.\n");
     }
 
     if(users == 0){
