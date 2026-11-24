@@ -142,53 +142,69 @@ void movieLib(void) {
 }
 
 
-void recommender(char userData[10][13][100], char genre[10], char actors[30], int length, char director[30], char studio[30], double rating, int UserNumber){
+void recommender(char userData[10][7][100], char genre[10], char actors[30], int length, char director[30], char studio[30], double rating, int UserNumber){
     int points[100] = {0};
-
-    for(int i = 0; i < 99; i++){
+        double Max = 0;
+        double Min = 0;
+    for(int i = 0; i < 100; i++){
         if(strcmp(filmList[i].genre, genre) == 0){
             points[i] = points[i] + 3;
+            //printf("Film nr: %d (%s) + 3 point for genre\n", i, filmList[i].title);
         }
         int actorCount = sizeof(filmList[i].actors) / sizeof(filmList[i].actors[0]);
 
         for(int j = 0; j < actorCount; j++){
             if(strcmp(filmList[i].actors[j], actors) == 0){
                 points[i] = points[i] + 3;
+                //printf("Film nr: %d (%s) + 3 point for actor\n", i, filmList[i].title);
             }
         }
-        if((length - 15) < filmList[i].duration || (length + 15) > filmList[i].duration){
+        Max = length + 15;
+        Min = length - 15;
+        if(Min < filmList[i].duration && Max > filmList[i].duration){
             points[i] = points[i] + 3;
+            //printf("Film nr: %d (%s) + 3 point for length\n", i, filmList[i].title);
         }
         if(strcmp(filmList[i].director, director) == 0){
             points[i] = points[i] + 3;
+            //printf("Film nr: %d (%s) + 3 point for director\n", i, filmList[i].title);
         }
-        if((rating - 2) < filmList[i].rating || (rating + 2) > filmList[i].rating){
+        Max = rating + 0.5;
+        Min = rating - 0.5;
+        if(Min < filmList[i].rating && Max > filmList[i].rating){
             points[i] = points[i] + 3;
+            //printf("Film nr: %d (%s) + 3 point for rating\n", i, filmList[i].title);
         }
 
         if(strcmp(filmList[i].genre, userData[UserNumber][1]) == 0){
             points[i] = points[i] + 1;
+            //printf("Film nr: %d (%s) + 1 point for genre1\n", i, filmList[i].title);
         }
         if(strcmp(filmList[i].genre, userData[UserNumber][2]) == 0){
             points[i] = points[i] + 1;
+            //printf("Film nr: %d (%s) + 1 point for genre2\n", i, filmList[i].title);
         }
         if(strcmp(filmList[i].genre, userData[UserNumber][3]) == 0){
             points[i] = points[i] + 1;
+            //printf("Film nr: %d (%s) + 1 point for genre3\n", i, filmList[i].title);
         }
        
-        if(strcmp(filmList[i].actors[0], userData[UserNumber][10]) == 0){
+        if(strcmp(filmList[i].actors[0], userData[UserNumber][4]) == 0){
             points[i] = points[i] + 1;
+            //printf("Film nr: %d (%s) + 1 point for actor1\n", i, filmList[i].title);
         }
-        if(strcmp(filmList[i].actors[1], userData[UserNumber][11]) == 0){
+        if(strcmp(filmList[i].actors[1], userData[UserNumber][5]) == 0){
             points[i] = points[i] + 1;
+            //printf("Film nr: %d (%s) + 1 point for actor2\n", i, filmList[i].title);
         }
-        if(strcmp(filmList[i].actors[2], userData[UserNumber][12]) == 0){
+        if(strcmp(filmList[i].actors[2], userData[UserNumber][6]) == 0){
             points[i] = points[i] + 1;
+            //printf("Film nr: %d (%s) + 1 point for actor3\n", i, filmList[i].title);
         }
     }
     int movieCount = sizeof(filmList) / sizeof(filmList[0]); // Dette vier ikke! Vi ønsker at få de 3 film med højest antal poing
 
-    int ChoosenMovis[3][2] = {{0},{0}}; //Oprette array til at indholde vore 3 film vi vil anbefale. Indholder: {[point (point fra points), pos (pos i filmList)]}  //[2] film med flest point, [1] film med 2. flest point, [0] film med 3. flest point.
+    int ChoosenMovis[3][2] = {0}; //Oprette array til at indholde vore 3 film vi vil anbefale. Indholder: {[point (point fra points), pos (pos i filmList)]}  //[2] film med flest point, [1] film med 2. flest point, [0] film med 3. flest point.
    for(int k = 0; k < movieCount; k++){ // Gennemkøre alle elementer i vores filmList (filmList size)
         if(points[k] < ChoosenMovis[0][0]){ //tjekker om filmen på pos k har flere point end ChoosenMovis på plads 0
 
@@ -198,16 +214,16 @@ void recommender(char userData[10][13][100], char genre[10], char actors[30], in
 
         }else if(points[k] <= ChoosenMovis[2][0]){//tjekker om filmen på pos k har flere point end ChoosenMovis på plads 2
             ChoosenMovis[0][0] = ChoosenMovis[1][0];
-            ChoosenMovis[0][0] = ChoosenMovis[1][1];
+            ChoosenMovis[0][1] = ChoosenMovis[1][1];
 
             ChoosenMovis[1][0] = points[k];
             ChoosenMovis[1][1] = k;
         }else{ //tjekker om filmen på pos k har flere point end 
             ChoosenMovis[0][0] = ChoosenMovis[1][0];
-            ChoosenMovis[0][0] = ChoosenMovis[1][1];
+            ChoosenMovis[0][1] = ChoosenMovis[1][1];
 
             ChoosenMovis[1][0] = ChoosenMovis[2][0];
-            ChoosenMovis[1][0] = ChoosenMovis[2][1];
+            ChoosenMovis[1][1] = ChoosenMovis[2][1];
 
             ChoosenMovis[2][0] = points[k];
             ChoosenMovis[2][1] = k;
@@ -218,6 +234,11 @@ void recommender(char userData[10][13][100], char genre[10], char actors[30], in
    for(int k = 0; k < 3; k++){
     printf("%s : %d Point \n", filmList[ChoosenMovis[k][1]].title, ChoosenMovis[k][0]);
    }
-}
+/*
+   for(int i = 0; i < 100; i++){
+    printf("i: %d, Poing %d, FIlm: %s \n", i, points[i], filmList[i].title);
+   }
+*/
+   }
 
 

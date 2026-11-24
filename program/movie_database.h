@@ -12,18 +12,9 @@ typedef struct {
     char actors[3][100];
 } Film;
 
-Film filmList[];
+//Film filmList[];
 void movieLib(void);
 
-void recommender(char userData[10][13][100], char genre[10], char actors[30], int length, char director[30], char studio[30], double rating, int UserNumber);
+void recommender(char userData[10][7][100], char genre[10], char actors[30], int length, char director[30], char studio[30], double rating, int UserNumber);
 
 #endif
-
-
-
-char genre[10];
-    char actors[30];
-    int length;
-    char director[30];
-    char studio[30];
-    double rating;

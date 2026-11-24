@@ -16,18 +16,30 @@
 }},
 "user3":
 {
-"username" : "Dragonlord", 
-"genre0" : "hey", 
-"genre1" : "sd", 
-"genre2" : "sd", 
-"dislikeGenre0" : "horror", 
-"dislikeGenre1" : "fantasy", 
-"dislikeGenre2" : "action", 
-"movies0" : "interstellar", 
-"movies1" : "lord", 
-"movies2" : "of", 
-"actors0" : "the", 
-"actors1" : "rings", 
-"actors2" : "star" 
+"username" : "Frodo", 
+"genre0" : "Fatasy", 
+"genre1" : "Fantasy", 
+"genre2" : "Sci-Fi", 
+"dislikeGenre0" : "Romance", 
+"dislikeGenre1" : "Thiller", 
+"dislikeGenre2" : "Comidy", 
+"movies0" : "0", 
+"movies1" : "0", 
+"movies2" : "0", 
+"actors0" : "Peter Jackson", 
+"actors1" : "Timothee Chalamet", 
+"actors2" : "Elijah Wood" 
+}
+}
+},
+"user4":
+{
+"username" : "Bo", 
+"genre0" : "Action", 
+"genre1" : "Horror", 
+"genre2" : "Fantasy", 
+"actors0" : "Brad Pitt", 
+"actors1" : "Henry Cavill", 
+"actors2" : "Julia Roberts" 
 }
 }

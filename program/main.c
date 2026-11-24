@@ -38,14 +38,14 @@ int main(int argv, char** argc){
             CreateUser(Username, users);
             nyuser = 1;
 
-        Get_User(Usernames, &users);
         }
+        Get_User(Usernames, &users);
         for(int i = 0; i < 10; i++){
-            if(strcmp(Input, Usernames[i]) == 0 /*|| nyuser == 1*/){
+            if(strcmp(Input, Usernames[i]) == 0 || nyuser == 1){
                 Userfound = 1;
 
                 questions(genre, actors, &length, director, studio, &rating);
-                char userData[10][13][100];
+                char userData[10][7][100];
                 getAll_DATA(userData);
                 int UserNumber = i;
                 recommender(userData, genre, actors, length, director, studio, rating, UserNumber);

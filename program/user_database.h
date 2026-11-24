@@ -4,5 +4,5 @@
 typedef struct User User;
 
 void Get_User(char (*Usernames)[50], int *users);
-void getAll_DATA(char (*user)[13][100]);
+void getAll_DATA(char (*user)[7][100]);
 #endif

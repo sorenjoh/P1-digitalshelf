@@ -49,8 +49,7 @@ void Get_User(char (*Usernames)[50], int *users){ //Get usernames from JSON file
 }
 
 
-
-void getAll_DATA(char (*user)[13][100]){ //multidimentional arrayis i c håntere der første array som en pointer 
+void getAll_DATA(char (*user)[7][100]){ //multidimentional arrayis i c håntere der første array som en pointer 
     FILE *Userfile = fopen("users.json", "r"); //åbner json filen i read mode og håntere filadressen med "Userfile"
 
     if (Userfile == NULL) { //Tjekker om filen ikke blevet åbnet
@@ -87,33 +86,15 @@ void getAll_DATA(char (*user)[13][100]){ //multidimentional arrayis i c håntere
                 }else if(strcmp(output, "genre2") == 0){
                     Bool_CauntDown = 1;
                     datapoint = 3;
-                }else if(strcmp(output, "dislikeGenre0") == 0){
-                    Bool_CauntDown = 1;
-                    datapoint = 4;
-                }else if(strcmp(output, "dislikeGenre1") == 0){
-                    Bool_CauntDown = 1;
-                    datapoint = 5;
-                }else if(strcmp(output, "dislikeGenre2") == 0){
-                    Bool_CauntDown = 1;
-                    datapoint = 6;
-                }else if(strcmp(output, "movies0") == 0){
-                    Bool_CauntDown = 1;
-                    datapoint = 7;
-                }else if(strcmp(output, "movies1") == 0){
-                    Bool_CauntDown = 1;
-                    datapoint = 8;
-                }else if(strcmp(output, "movies2") == 0){
-                    Bool_CauntDown = 1;
-                    datapoint = 9;
                 }else if(strcmp(output, "actors0") == 0){
                     Bool_CauntDown = 1;
-                    datapoint = 10;
+                    datapoint = 4;
                 }else if(strcmp(output, "actors1") == 0){
                     Bool_CauntDown = 1;
-                    datapoint = 11;
+                    datapoint = 5;
                 }else if(strcmp(output, "actors2") == 0){
                     Bool_CauntDown = 1;
-                    datapoint = 12;
+                    datapoint = 6;
                 }
                 break;
             }
