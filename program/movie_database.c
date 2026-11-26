@@ -2,7 +2,9 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
+/*
     Film filmList[] = {
         {"Groundhog Day", "Comedy", 1993, 101, "Harold Ramis", 8.0, {"Bill Murray", "Andie MacDowell", "Chris Elliott"}},
         {"Superbad", "Comedy", 2007, 113, "Greg Mottola", 7.6, {"Jonah Hill", "Michael Cera", "Christopher Mintz-Plasse"}},
@@ -115,6 +117,150 @@
         {"Oppenheimer", "Biography", 2023, 180, "Christopher Nolan", 8.2, {"Cillian Murphy", "Emily Blunt", "Robert Downey Jr."}},
         {"The Wolf of Wall Street", "Biography", 2013, 180, "Martin Scorsese", 8.2, {"Leonardo DiCaprio", "Jonah Hill", "Margot Robbie"}}
     };
+*/
+
+Film filmList[100];
+void GetMoviesFromFile(void){
+    Film filmList[100];
+
+void GetMoviesFromFile(void){
+
+    FILE *MovieFile = fopen("Movies.csv", "r");
+
+    if(MovieFile == NULL){
+        printf("ERROR: Moviefile could not open\n");
+        return;
+    }
+
+    const int CharAmount = 100;
+    char Movies[CharAmount];
+
+    int c;
+    int posInfilmList = 0;
+    int datapoint = 0;
+    int AntalCaraktere = 0;
+    int NyLinje = 0;
+
+    // Nulstil alle film
+    memset(filmList, 0, sizeof(filmList));
+
+    while((c = fgetc(MovieFile)) != EOF &&
+          posInfilmList < 100){
+
+        NyLinje = 0;
+        AntalCaraktere = 0;
+
+        // Indlæser et helt felt fra CSV-filen
+        for(int i = 0; ; ){
+
+            if(c == ','){
+                break;
+
+            }else if(c == '\n' || c == EOF){
+                NyLinje = 1;
+                break;
+
+            }else if(c != '\r'){
+
+                // Sørger for, at arrayet ikke overfyldes
+                if(i < CharAmount - 1){
+                    Movies[i] = c;
+                    AntalCaraktere++;
+                    i++;
+                }
+            }
+
+            c = fgetc(MovieFile);
+        }
+        // Afslutter vores string
+        Movies[AntalCaraktere] = '\0';
+
+        // Overfører data til vores struct
+        for(int i = 0; i <= AntalCaraktere; i++){
+
+            if(datapoint == 0){
+                filmList[posInfilmList].title[i] = Movies[i];
+
+            }else if(datapoint == 1){
+                if(i < 49){
+                    filmList[posInfilmList].genre[i] = Movies[i];
+                }
+
+            }else if(datapoint == 2){
+                filmList[posInfilmList].year = atoi(Movies);
+                break;
+
+            }else if(datapoint == 3){
+                filmList[posInfilmList].duration = atoi(Movies);
+                break;
+
+            }else if(datapoint == 4){
+                filmList[posInfilmList].director[i] = Movies[i];
+
+            }else if(datapoint == 5){
+                filmList[posInfilmList].rating = atof(Movies);
+                break;
+
+            }else if(datapoint == 6){
+                filmList[posInfilmList].actors[0][i] = Movies[i];
+
+            }else if(datapoint == 7){
+                filmList[posInfilmList].actors[1][i] = Movies[i];
+
+            }else if(datapoint == 8){
+                filmList[posInfilmList].actors[2][i] = Movies[i];
+
+            }else{
+                printf("ERROR: Overflow af datapoints\n");
+                break;
+            }
+        }
+
+        // Først nu går vi videre til næste felt eller film
+        if(NyLinje == 1){
+            posInfilmList++;
+            datapoint = 0;
+        }else{
+            datapoint++;
+        }
+
+        // Tømmer midlertidig string
+        AntalCaraktere = 0;
+
+        for(int i = 0; i < CharAmount; i++){
+            Movies[i] = '\0';
+        }
+
+        if(c == EOF){
+            break;
+        }
+    }
+
+    fclose(MovieFile);
+
+    printf("Antal indlaeste film: %d\n", posInfilmList);
+
+    // Printer alle indlæste film
+    for(int i = 0; i < posInfilmList; i++){
+
+        printf("%s, %s, %d, %d, %s, %.1f, %s, %s, %s\n",
+            filmList[i].title,
+            filmList[i].genre,
+            filmList[i].year,
+            filmList[i].duration,
+            filmList[i].director,
+            filmList[i].rating,
+            filmList[i].actors[0],
+            filmList[i].actors[1],
+            filmList[i].actors[2]);
+    }
+
+    printf("\n");
+}
+        
+}
+
+
 
 void movieLib(void) {
 

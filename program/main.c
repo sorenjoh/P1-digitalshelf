@@ -14,6 +14,7 @@ int main(void){
         puts("Error: Could not read users.json.");
         return 1;
     }
+    GetMoviesFromFile();
 
     printf("Users: ");
     for(int i = 0; i < users; i++){
@@ -62,5 +63,6 @@ int main(void){
     double rating;
     questions(genre, actors, &length, director, studio, &rating);
     recommender(userData, genre, actors, length, director, studio, rating, userNumber);
+
     return 0;
 }
